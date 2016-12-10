@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="mama">
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+     	<div ng-controller="yangbaobao">
+			<a href="#/y1">宝剑锋从磨砺出，梅花香自苦寒来</a><br/>
+			<a href="#/y2">彼岸花开，曼珠沙华，三生三世，十里桃花</a><br/>
+			<a href="#/y3">菩提本无树，明镜亦非台。本来无一物，何处惹尘埃。</a>
+			<p>{{name}}</p>
+			<div ui-view=""></div>
+<!--		</div>-->
+	</body>
+	<script type="text/javascript" src="js/angular.js" ></script>
+	<script type="text/javascript" src="js/angular-ui-router.js" ></script>
+	<style>
+		.bbb{color:chartreuse;}
+		.b1{color:cyan;}
+	</style>
+	<script>
+		var app = angular.module("mama",["ui.router"]);
+		//$stateProvider
+		app.config(function($stateProvider){
+			//	$stateProvider.state("index",{
+				$stateProvider.state("y1",{
+					 url:'/y1',
+                 templateUrl:"hhh/hh1.html"
+				}).state('y2',{
+				//url+#/home
+				url:'/y2',
+				templateUrl:'hhh/hh2.html'
+				}).state('y3',{
+				//url+#/home
+				url:'/y3',
+				templateUrl:'hhh/hh3.html'
+				}).state('y1.a',{
+				//url+#/index/a
+			    url:'/a',
+				template:'<div>有眼光</div>'
+			}).state('y1.b',{
+				//url+#/index/b
+				url:'/b',
+				template:'<div>你的眼神真不好</div>'
+			}).state('y3.a',{
+				//url+#/index/a
+			    url:'/a',
+				template:'<div>来啊，互相伤害啊</div>'
+			}).state('y3.b',{
+				//url+#/index/b
+				url:'/b',
+				template:'<div>恁黑，反了吧！！！无肉不欢的猪！！</div>'
+			})
+		})
+		app.controller('yangbaobao',function($scope){
+			$scope.name = '墙角数枝梅，凌寒独自开。遥知不是雪，为有暗香来';
+		})
+	</script>
+</html>
